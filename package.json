@@ -2,15 +2,19 @@
   "name": "isaf",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
+    "start": "node .",
+    "electron": "electron app/main.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dateformat": "^3.0.3",
     "jsontoxml": "^1.0.1"
+  },
+  "devDependencies": {
+    "electron": "^4.0.0"
   }
 }
