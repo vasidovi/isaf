@@ -2,11 +2,12 @@
   "name": "isaf",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "electron": "electron app/main.js"
+    "electron": "electron src/app/main.js",
+    "eslint": "./node_modules/.bin/eslint src/**/*.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "jsontoxml": "^1.0.1"
   },
   "devDependencies": {
-    "electron": "^4.0.0"
+    "electron": "^4.0.0",
+    "eslint": "^5.11.1"
   }
 }
