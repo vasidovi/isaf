@@ -9,6 +9,8 @@
 		"sourceType": "module"
 	},
 	"rules": {
+		"no-undef": "warn",
+		"no-unused-vars":"warn",
 		"indent": [
 			"warn",
 			"tab"

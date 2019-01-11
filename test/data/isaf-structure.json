@@ -1,0 +1,170 @@
+{ 
+	"@": {	"xmlns": "http://www.vmi.lt/cms/imas/isaf",
+		"xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
+	},
+		"Header": {
+			"FileDescription": {
+				"FileVersion": "iSAF1.2",
+				"FileDateCreated": "2018-12-20T08:37:29Z",
+				"DataType": "F",
+				"SoftwareCompanyName": {},
+				"SoftwareName": {},
+				"SoftwareVersion": {},
+				"RegistrationNumber": "000000000",
+				"NumberOfParts": "1",
+				"PartNumber": "1",
+				"SelectionCriteria": {
+					"SelectionStartDate": "2018-11-01",
+					"SelectionEndDate": "2018-11-30"
+				}
+			}
+		},
+		"MasterFiles": {
+			"Customers": {
+				"Customer": [
+					{
+						"CustomerID": "111111111",
+						"VATRegistrationNumber": "ND",
+						"RegistrationNumber": "111111111",
+						"Country": "LT",
+						"Name": "uab test"
+					},
+					{
+						"CustomerID": "222222222222",
+						"VATRegistrationNumber": "LT222222222222",
+						"RegistrationNumber": "ND",
+						"Country": "LT",
+						"Name": "UAB ąčęė"
+					}
+				]
+			},
+			"Suppliers": {
+				"Supplier": [
+					{
+						"SupplierID": "333333333",
+						"VATRegistrationNumber": "333333333",
+						"RegistrationNumber": "ND",
+						"Country": "LT",
+						"Name": "UAB test 123"
+					},
+					{
+						"SupplierID": "444444444444",
+						"VATRegistrationNumber": "LT444444444444",
+						"RegistrationNumber": "ND",
+						"Country": "LT",
+						"Name": "UAB test"
+					}
+				]
+			}
+		},
+		"SourceDocuments": {
+			"PurchaseInvoices": {
+				"Invoice": [
+					{
+						"InvoiceNo": "AAA000000",
+						"SupplierInfo": {
+							"SupplierID": "444444444444",
+							"VATRegistrationNumber": "444444444444",
+							"RegistrationNumber": "ND",
+							"Country": "LT",
+							"Name": "UAB tests"
+						},
+						"InvoiceDate": "2018-11-01",
+						"InvoiceType": "SF",
+						"SpecialTaxation": {},
+						"References": {},
+						"VATPointDate": "2018-11-01",
+						"RegistrationAccountDate": "2018-11-01",
+						"DocumentTotals": {
+							"DocumentTotal": {
+								"TaxableValue": "51.74",
+								"TaxCode": "PVM1",
+								"TaxPercentage": "21",
+								"Amount": "11.67"
+							}
+						}
+					},
+					{
+						"InvoiceNo": "222222222",
+						"SupplierInfo": {
+							"SupplierID": "222222222",
+							"VATRegistrationNumber": "222222222",
+							"RegistrationNumber": "ND",
+							"Country": "LT",
+							"Name": "UAB test"
+						},
+						"InvoiceDate": "2018-11-02",
+						"InvoiceType": "SF",
+						"SpecialTaxation": {},
+						"References": {},
+						"VATPointDate": "2018-11-02",
+						"RegistrationAccountDate": "2018-11-02",
+						"DocumentTotals": {
+							"DocumentTotal": {
+								"TaxableValue": "23.64",
+								"TaxCode": "PVM1",
+								"TaxPercentage": "21",
+								"Amount": "51.16"
+							}
+						}
+					}
+				]
+			},
+			"SalesInvoices": {
+				"Invoice": [
+					{
+						"InvoiceNo": "AAA",
+						"CustomerInfo": {
+							"CustomerID": "444444444",
+							"VATRegistrationNumber": "444444444",
+							"RegistrationNumber": "ND",
+							"Country": "LT",
+							"Name": "UAB test"
+						},
+						"InvoiceDate": "2018-11-09",
+						"InvoiceType": "SF",
+						"SpecialTaxation": {},
+						"References": {},
+						"VATPointDate": "2018-11-09",
+						"DocumentTotals": {
+							"DocumentTotal": {
+								"TaxableValue": "46.66",
+								"TaxCode": "PVM1",
+								"TaxPercentage": "21",
+								"Amount": "9.80",
+								"VATPointDate2": "2018-11-09"
+							}
+						}
+					},
+					{
+						"InvoiceNo": "XXXAAA",
+						"CustomerInfo": {
+							"CustomerID": "555555555",
+							"VATRegistrationNumber": "ND",
+							"RegistrationNumber": "555555555",
+							"Country": "LT",
+							"Name": "UAB test"
+						},
+						"InvoiceDate": "2018-11-09",
+						"InvoiceType": "SF",
+						"SpecialTaxation": {},
+						"References": {},
+						"VATPointDate": "2018-11-09",
+						"DocumentTotals": {
+							"DocumentTotal": {
+								"TaxableValue": "15.33",
+								"TaxCode": "PVM5",
+								"TaxPercentage": {
+									"@": { "xsi:nil": "true"
+								}
+							},
+								"Amount": "0.00",
+								"VATPointDate2": "2018-11-09"
+							}
+						}
+					}
+				]
+			}
+		}
+	
+}
