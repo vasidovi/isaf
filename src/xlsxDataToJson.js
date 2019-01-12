@@ -30,7 +30,7 @@ const genrateJson = function (path, startDate, endDate) {
     const operationsSheet = workbook.Sheets[sheets.operations];
     const invoices = getInvoices(operationsSheet, startDate, endDate);
 
-    return null;
+    return invoices;
 };
 
 
@@ -50,37 +50,87 @@ const getDateOrNull = function (dateString) {
     }
 }
 
+
+
+const getTax = function (worksheet, row, tax) {
+    const taxableValue = getCellOrEmpty(worksheet, tax.taxableValue + row);
+
+    if (!taxableValue)
+        return null;
+
+    const taxAmount = getCellOrEmpty(worksheet, tax.taxAmount + row);
+    const taxCode = tax.taxCode ? getCellOrEmpty(worksheet, tax.taxCode + row) : "";
+
+    return {
+        taxableValue,
+        taxAmount,
+        taxCode
+    };
+
+}
+
+const getTaxes = function (worksheet, row) {
+    const SFcolumns = config.get('Workbook.invoiceColumns.taxesSF');
+    const KScolumns = config.get('Workbook.invoiceColumns.taxesKS');
+    const taxes = [];
+
+    SFcolumns.forEach(tax => {
+
+        const taxInstance = getTax(worksheet, row, tax);
+        if (taxInstance)
+            taxes.push(taxInstance);
+
+    });
+
+    if (taxes.length == 0) {
+
+        KScolumns.forEach(tax => {
+
+            const taxInstance = getTax(worksheet, row, tax);
+            if (taxInstance)
+                taxes.push(taxInstance);
+
+        });
+    };
+
+    return taxes;
+
+}
+
 const getInvoices = function (worksheet, startDate, endDate) {
 
     const keys = Object.keys(worksheet);
     const idKeys = keys
         .filter(key => key.startsWith("D"))
-        
+
 
     const invoices = [];
-    
+
     idKeys.forEach(key => {
         const row = key.substr(1);
-        const dateString = getCellOrEmpty(worksheet, "C" + row, "w");
+        const columns = config.get('Workbook.invoiceColumns');
+
+        const dateString = getCellOrEmpty(worksheet, columns.date + row, "w");
         const date = getDateOrNull(dateString);
-        
-        if (date == null || date < startDate  || date > endDate) 
-        return;
+
+        if (date == null || date < startDate || date > endDate)
+            return;
+
+        const taxes = getTaxes(worksheet, row);
+
+        if (taxes.length == 0)
+            return;
+
 
         const invoice = {
-            "invoiceNo":  getCellOrEmpty(worksheet, "D" + row),
-            "invoiceDate":  dateFormat(date,'isoDate'),
-            "partnerId": getCellOrEmpty(worksheet, "E" + row),
-            "taxes": [{
-                "taxableValue": getCellOrEmpty(worksheet, "H" + row),
-                "taxAmount": getCellOrEmpty(worksheet, "I" + row),
-                "taxCode": getCellOrEmpty(worksheet, "J" + row)
-            }]
+            "invoiceNo": getCellOrEmpty(worksheet, columns.no + row),
+            "invoiceDate": dateFormat(date, 'isoDate'),
+            "partnerId": getCellOrEmpty(worksheet, columns.id + row),
+            "taxes": taxes
         };
         invoices.push(invoice);
     });
-     
-    console.log(invoices);
+
 
     return invoices;
 };

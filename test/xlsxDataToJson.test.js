@@ -10,14 +10,14 @@ describe.only('xlsxDataToJson', function () {
 		const jsonOutputExample = JSON.parse(fs.readFileSync('test/data/isaf-structure.json', 'utf8'));
 
 		const path = "test/personalData/2018m ŪK.OP.Ž.n.xlsx";
-		const startDate = new Date(2018, 10, 1);
+		const startDate = new Date(2018, 0, 1);
 		const endDate = new Date(startDate);
 		endDate.setMonth(endDate.getMonth() + 1);
 		endDate.setDate(endDate.getDate() - 1);
 
 		const json = xlsxDataToJson.genrateJson(path, startDate, endDate);
 
-		fs.writeFileSync('test/data/out.json', json);
+		fs.writeFileSync('test/data/out.json', JSON.stringify(json));
 		expect(json).to.deep.equal(jsonOutputExample);
 	});
 });
