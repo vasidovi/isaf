@@ -1,0 +1,40 @@
+{
+	"@": {
+		"xmlns": "http://www.vmi.lt/cms/imas/isaf",
+		"xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
+	},
+	"Header": {
+		"FileDescription": {
+			"FileVersion": "iSAF1.2",
+			"FileDateCreated": { "_type": "date", "format": "isoUtcDateTime"},
+			"DataType": "F",
+			"SoftwareCompanyName": {},
+			"SoftwareName": {},
+			"SoftwareVersion": {},
+			"RegistrationNumber": "121199229",
+			"NumberOfParts": "1",
+			"PartNumber": "1",
+			"SelectionCriteria": {
+				"SelectionStartDate": {"_type": "date", "format": "isoDate", "src": "startDate"},
+				"SelectionEndDate": {"_type": "date", "format": "isoDate", "src": "endDate"}
+			}
+		}
+	},
+	"MasterFiles": {
+		"Customers": {
+			"Customer": [],
+			"Suppliers": {
+				"Supplier": []
+			}
+		},
+		"SourceDocuments": {
+			"PurchaseInvoices": {
+				"Invoice": []
+			},
+
+			"SalesInvoices": {
+				"Invoice": []
+			}
+		}
+	}
+}

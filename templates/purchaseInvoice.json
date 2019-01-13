@@ -1,0 +1,13 @@
+{
+	"InvoiceNo": {},
+	"SupplierInfo": "@:supplier obj. from supplier template",
+	"InvoiceDate": {},
+	"InvoiceType": {},
+	"SpecialTaxation": {},
+	"References": {},
+	"VATPointDate": {},
+	"RegistrationAccountDate": {},
+	"DocumentTotals": {
+		"DocumentTotal":[]
+	}
+}

@@ -1,0 +1,24 @@
+<Invoice>
+        <InvoiceNo>AAA000000</InvoiceNo>
+        <SupplierInfo>
+          <SupplierID>444444444444</SupplierID>
+          <VATRegistrationNumber>444444444444</VATRegistrationNumber>
+          <RegistrationNumber>ND</RegistrationNumber>
+          <Country>LT</Country>
+          <Name>UAB tests</Name>
+        </SupplierInfo>
+        <InvoiceDate>2018-11-01</InvoiceDate>
+        <InvoiceType>SF</InvoiceType>
+        <SpecialTaxation/>
+        <References/>
+        <VATPointDate>2018-11-01</VATPointDate>
+        <RegistrationAccountDate>2018-11-01</RegistrationAccountDate>
+        <DocumentTotals>
+          <DocumentTotal>
+            <TaxableValue>51.74</TaxableValue>
+            <TaxCode>PVM1</TaxCode>
+            <TaxPercentage>21</TaxPercentage>
+            <Amount>11.67</Amount>
+          </DocumentTotal>
+        </DocumentTotals>
+      </Invoice>

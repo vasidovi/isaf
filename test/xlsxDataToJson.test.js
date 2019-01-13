@@ -15,7 +15,10 @@ describe('xlsxDataToJson', function () {
 		endDate.setMonth(endDate.getMonth() + 1);
 		endDate.setDate(endDate.getDate() - 1);
 
+	
 		const json = xlsxDataToJson.genrateJson(path, startDate, endDate);
+		 json.Header.FileDescription.FileDateCreated = jsonOutputExample.Header.FileDescription.FileDateCreated;
+
 
 		fs.writeFileSync('test/out/out.json', JSON.stringify(json));
 		expect(json).to.deep.equal(jsonOutputExample);

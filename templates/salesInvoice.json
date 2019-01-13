@@ -1,0 +1,12 @@
+{
+	"InvoiceNo": {},
+	"CustomerInfo": "@:customer obj. from customer template",
+	"InvoiceDate": {},
+	"InvoiceType": {},
+	"SpecialTaxation": {},
+	"References": {},
+	"VATPointDate": {},
+	"DocumentTotals": {
+		"DocumentTotal": []
+	}
+}

@@ -1,36 +1,28 @@
-// const json = {};	
-// 	json.iSAFFile
-// 	json.Header = {};
-// 	json.Header.FileDescription = {};
-// 	const fd = json.Header.FileDescription;
-// 	fd.FileVersion = '';
-// 	fd.FileDateCreated = dateFormat(Date.now(), 'isoUtcDateTime');
-// 	fd.DataType = '';
-// 	fd.SoftwareCompanyName = '';
-// 	fd.SoftwareName = '';
-// 	fd.SoftwareVersion='';
-// 	fd.RegistrationNumber='';
-// 	fd.NumberOfParts='';
-// 	fd.NumberOfParts='';
-// 	fd.PartNumber='';
-// 	fd.SelectionCriteria ={};
-// 	fd.SelectionCriteria.SelectionStartDate = dateFormat(Date.now(),'isoDate');
-// 	fd.SelectionCriteria.SelectionEndDate =  dateFormat(Date.now(),'isoDate');
-
-
 const XLSX = require('xlsx');
 const config = require('config');
 const dateFormat = require('dateformat');
+const getJson =require('./jsonToTemplate').getJson;
 
 const genrateJson = function (path, startDate, endDate) {
     const workbook = XLSX.readFile(path);
     const sheets = config.get('Workbook.sheets');
     const credentialsSheet = workbook.Sheets[sheets.credentials];
     const credentials = getCredentials(credentialsSheet);
-    const operationsSheet = workbook.Sheets[sheets.operations];
-    const invoices = getInvoices(operationsSheet, startDate, endDate);
+    
+    // invoicesSheets =[];
+    const invoicesMetadata =config.get("Workbook.invoices");
+    let invoices = [];
+    invoicesMetadata.forEach((metadata) => {
 
-    return invoices;
+        const worksheet = workbook.Sheets[metadata.sheetName];
+        const currentInvoices = getInvoices(worksheet,startDate,endDate, metadata);
+        invoices = invoices.concat(currentInvoices);
+    })
+    
+    const configuration = config.get("Workbook");
+    const json = getJson({configuration,credentials,invoices,startDate,endDate});
+
+    return json;
 };
 
 
@@ -69,9 +61,9 @@ const getTax = function (worksheet, row, tax) {
 
 }
 
-const getTaxes = function (worksheet, row) {
-    const SFcolumns = config.get('Workbook.invoiceColumns.taxesSF');
-    const KScolumns = config.get('Workbook.invoiceColumns.taxesKS');
+const getTaxes = function (worksheet, metadata, row) {
+    const SFcolumns = metadata.taxesSF || [];
+    const KScolumns = metadata.taxesKS || [];
     const taxes = [];
 
     SFcolumns.forEach(tax => {
@@ -92,40 +84,40 @@ const getTaxes = function (worksheet, row) {
 
         });
     };
-
     return taxes;
 
 }
 
-const getInvoices = function (worksheet, startDate, endDate) {
+const getInvoices = function (worksheet, startDate, endDate, metadata) {
 
     const keys = Object.keys(worksheet);
+
+    const keyLetter = metadata.no;
     const idKeys = keys
-        .filter(key => key.startsWith("D"))
+        .filter(key => key.startsWith(keyLetter))
 
 
     const invoices = [];
 
     idKeys.forEach(key => {
         const row = key.substr(1);
-        const columns = config.get('Workbook.invoiceColumns');
 
-        const dateString = getCellOrEmpty(worksheet, columns.date + row, "w");
+        const dateString = getCellOrEmpty(worksheet, metadata.date + row, "w");
         const date = getDateOrNull(dateString);
 
         if (date == null || date < startDate || date > endDate)
             return;
 
-        const taxes = getTaxes(worksheet, row);
+        const taxes = getTaxes(worksheet, metadata, row);
 
         if (taxes.length == 0)
             return;
 
 
         const invoice = {
-            "invoiceNo": getCellOrEmpty(worksheet, columns.no + row),
+            "invoiceNo": getCellOrEmpty(worksheet, metadata.no + row),
             "invoiceDate": dateFormat(date, 'isoDate'),
-            "partnerId": getCellOrEmpty(worksheet, columns.id + row),
+            "partnerId": getCellOrEmpty(worksheet, metadata.id + row),
             "taxes": taxes
         };
         invoices.push(invoice);
