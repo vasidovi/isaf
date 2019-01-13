@@ -11,7 +11,7 @@ describe('jsonToXml', function () {
 		const xmlOutputExample = fs.readFileSync('test/data/isaf-structure.xml', 'utf8');
 
 		const xml = jsonToXml(jsonInput);
-		fs.writeFileSync('test/data/out.xml',xml);
+		fs.writeFileSync('test/out/out.xml',xml);
 		expect(xml).to.equal(xmlOutputExample);
 	});
 });

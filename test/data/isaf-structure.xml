@@ -3,151 +3,273 @@
   <Header>
     <FileDescription>
       <FileVersion>iSAF1.2</FileVersion>
-      <FileDateCreated>2018-12-20T08:37:29Z</FileDateCreated>
+      <FileDateCreated>2019-01-13T10:33:45Z</FileDateCreated>
       <DataType>F</DataType>
       <SoftwareCompanyName/>
       <SoftwareName/>
       <SoftwareVersion/>
-      <RegistrationNumber>000000000</RegistrationNumber>
+      <RegistrationNumber>121199229</RegistrationNumber>
       <NumberOfParts>1</NumberOfParts>
       <PartNumber>1</PartNumber>
       <SelectionCriteria>
-        <SelectionStartDate>2018-11-01</SelectionStartDate>
-        <SelectionEndDate>2018-11-30</SelectionEndDate>
+        <SelectionStartDate>2019-01-01</SelectionStartDate>
+        <SelectionEndDate>2019-01-31</SelectionEndDate>
       </SelectionCriteria>
     </FileDescription>
   </Header>
   <MasterFiles>
     <Customers>
       <Customer>
-        <CustomerID>111111111</CustomerID>
-        <VATRegistrationNumber>ND</VATRegistrationNumber>
-        <RegistrationNumber>111111111</RegistrationNumber>
-        <Country>LT</Country>
-        <Name>uab test</Name>
-      </Customer>
-      <Customer>
-        <CustomerID>222222222222</CustomerID>
-        <VATRegistrationNumber>LT222222222222</VATRegistrationNumber>
+        <CustomerID/>
+        <VATRegistrationNumber>LTAAAAAAAAA</VATRegistrationNumber>
         <RegistrationNumber>ND</RegistrationNumber>
         <Country>LT</Country>
-        <Name>UAB ąčęė</Name>
+        <Name>name3</Name>
+      </Customer>
+      <Customer>
+        <CustomerID>000004466688</CustomerID>
+        <VATRegistrationNumber>LT000004466688</VATRegistrationNumber>
+        <RegistrationNumber>ND</RegistrationNumber>
+        <Country>LT</Country>
+        <Name>name4</Name>
+      </Customer>
+      <Customer>
+        <CustomerID>343434343</CustomerID>
+        <VATRegistrationNumber>LT343434343</VATRegistrationNumber>
+        <RegistrationNumber>ND</RegistrationNumber>
+        <Country>LT</Country>
+        <Name>name1</Name>
       </Customer>
     </Customers>
     <Suppliers>
       <Supplier>
-        <SupplierID>333333333</SupplierID>
-        <VATRegistrationNumber>333333333</VATRegistrationNumber>
+        <SupplierID/>
+        <VATRegistrationNumber>LTAAAAAAAAA</VATRegistrationNumber>
         <RegistrationNumber>ND</RegistrationNumber>
         <Country>LT</Country>
-        <Name>UAB test 123</Name>
+        <Name>name3</Name>
       </Supplier>
       <Supplier>
-        <SupplierID>444444444444</SupplierID>
-        <VATRegistrationNumber>LT444444444444</VATRegistrationNumber>
+        <SupplierID>000004466688</SupplierID>
+        <VATRegistrationNumber>LT000004466688</VATRegistrationNumber>
         <RegistrationNumber>ND</RegistrationNumber>
         <Country>LT</Country>
-        <Name>UAB test</Name>
+        <Name>name4</Name>
+      </Supplier>
+      <Supplier>
+        <SupplierID>222333888</SupplierID>
+        <VATRegistrationNumber>ND</VATRegistrationNumber>
+        <RegistrationNumber>222333888</RegistrationNumber>
+        <Country>LT</Country>
+        <Name>name2</Name>
       </Supplier>
     </Suppliers>
   </MasterFiles>
   <SourceDocuments>
     <PurchaseInvoices>
       <Invoice>
-        <InvoiceNo>AAA000000</InvoiceNo>
+        <InvoiceNo>AAA00001</InvoiceNo>
         <SupplierInfo>
-          <SupplierID>444444444444</SupplierID>
-          <VATRegistrationNumber>444444444444</VATRegistrationNumber>
+          <SupplierID>000004466688</SupplierID>
+          <VATRegistrationNumber>LT000004466688</VATRegistrationNumber>
           <RegistrationNumber>ND</RegistrationNumber>
           <Country>LT</Country>
-          <Name>UAB tests</Name>
+          <Name>name4</Name>
         </SupplierInfo>
-        <InvoiceDate>2018-11-01</InvoiceDate>
+        <InvoiceDate>2019-01-02</InvoiceDate>
         <InvoiceType>SF</InvoiceType>
         <SpecialTaxation/>
         <References/>
-        <VATPointDate>2018-11-01</VATPointDate>
-        <RegistrationAccountDate>2018-11-01</RegistrationAccountDate>
+        <VATPointDate>2019-01-02</VATPointDate>
+        <RegistrationAccountDate>2019-01-02</RegistrationAccountDate>
         <DocumentTotals>
           <DocumentTotal>
-            <TaxableValue>51.74</TaxableValue>
+            <TaxableValue>812.52</TaxableValue>
             <TaxCode>PVM1</TaxCode>
             <TaxPercentage>21</TaxPercentage>
-            <Amount>11.67</Amount>
+            <Amount>170.63</Amount>
           </DocumentTotal>
         </DocumentTotals>
       </Invoice>
       <Invoice>
-        <InvoiceNo>222222222</InvoiceNo>
+        <InvoiceNo>AAA00002</InvoiceNo>
         <SupplierInfo>
-          <SupplierID>222222222</SupplierID>
-          <VATRegistrationNumber>222222222</VATRegistrationNumber>
+          <SupplierID/>
+          <VATRegistrationNumber>LTAAAAAAAAA</VATRegistrationNumber>
           <RegistrationNumber>ND</RegistrationNumber>
           <Country>LT</Country>
-          <Name>UAB test</Name>
+          <Name>name3</Name>
         </SupplierInfo>
-        <InvoiceDate>2018-11-02</InvoiceDate>
+        <InvoiceDate>2019-01-02</InvoiceDate>
         <InvoiceType>SF</InvoiceType>
         <SpecialTaxation/>
         <References/>
-        <VATPointDate>2018-11-02</VATPointDate>
-        <RegistrationAccountDate>2018-11-02</RegistrationAccountDate>
+        <VATPointDate>2019-01-02</VATPointDate>
+        <RegistrationAccountDate>2019-01-02</RegistrationAccountDate>
         <DocumentTotals>
           <DocumentTotal>
-            <TaxableValue>23.64</TaxableValue>
+            <TaxableValue>241.32</TaxableValue>
             <TaxCode>PVM1</TaxCode>
             <TaxPercentage>21</TaxPercentage>
-            <Amount>51.16</Amount>
+            <Amount>44.28</Amount>
+          </DocumentTotal>
+          <DocumentTotal>
+            <TaxableValue>5.31</TaxableValue>
+            <TaxCode>PVM2</TaxCode>
+            <TaxPercentage>9</TaxPercentage>
+            <Amount>0.48</Amount>
+          </DocumentTotal>
+        </DocumentTotals>
+      </Invoice>
+      <Invoice>
+        <InvoiceNo>AAA00005</InvoiceNo>
+        <SupplierInfo>
+          <SupplierID>000004466688</SupplierID>
+          <VATRegistrationNumber>LT000004466688</VATRegistrationNumber>
+          <RegistrationNumber>ND</RegistrationNumber>
+          <Country>LT</Country>
+          <Name>name4</Name>
+        </SupplierInfo>
+        <InvoiceDate>2019-01-08</InvoiceDate>
+        <InvoiceType>KS</InvoiceType>
+        <SpecialTaxation/>
+        <References/>
+        <VATPointDate>2019-01-08</VATPointDate>
+        <RegistrationAccountDate>2019-01-08</RegistrationAccountDate>
+        <DocumentTotals>
+          <DocumentTotal>
+            <TaxableValue>-19.60</TaxableValue>
+            <TaxCode>PVM1</TaxCode>
+            <TaxPercentage>21</TaxPercentage>
+            <Amount>-4.12</Amount>
+          </DocumentTotal>
+        </DocumentTotals>
+      </Invoice>
+      <Invoice>
+        <InvoiceNo>AAA456656565</InvoiceNo>
+        <SupplierInfo>
+          <SupplierID/>
+          <VATRegistrationNumber>LTAAAAAAAAA</VATRegistrationNumber>
+          <RegistrationNumber>ND</RegistrationNumber>
+          <Country>LT</Country>
+          <Name>name3</Name>
+        </SupplierInfo>
+        <InvoiceDate>2019-01-08</InvoiceDate>
+        <InvoiceType>SF</InvoiceType>
+        <SpecialTaxation/>
+        <References/>
+        <VATPointDate>2019-01-08</VATPointDate>
+        <RegistrationAccountDate>2019-01-08</RegistrationAccountDate>
+        <DocumentTotals>
+          <DocumentTotal>
+            <TaxableValue>124.51</TaxableValue>
+            <TaxCode>PVM1</TaxCode>
+            <TaxPercentage>21</TaxPercentage>
+            <Amount>26.16</Amount>
+          </DocumentTotal>
+          <DocumentTotal>
+            <TaxableValue>4.91</TaxableValue>
+            <TaxCode>PVM100</TaxCode>
+            <TaxPercentage xsi:nil="true"/>
+            <Amount>0.00</Amount>
+          </DocumentTotal>
+        </DocumentTotals>
+      </Invoice>
+      <Invoice>
+        <InvoiceNo>žžž455646555</InvoiceNo>
+        <SupplierInfo>
+          <SupplierID>222333888</SupplierID>
+          <VATRegistrationNumber>ND</VATRegistrationNumber>
+          <RegistrationNumber>222333888</RegistrationNumber>
+          <Country>LT</Country>
+          <Name>name2</Name>
+        </SupplierInfo>
+        <InvoiceDate>2019-01-08</InvoiceDate>
+        <InvoiceType>SF</InvoiceType>
+        <SpecialTaxation/>
+        <References/>
+        <VATPointDate>2019-01-08</VATPointDate>
+        <RegistrationAccountDate>2019-01-08</RegistrationAccountDate>
+        <DocumentTotals>
+          <DocumentTotal>
+            <TaxableValue>11.37</TaxableValue>
+            <TaxCode>PVM1</TaxCode>
+            <TaxPercentage>21</TaxPercentage>
+            <Amount>2.39</Amount>
           </DocumentTotal>
         </DocumentTotals>
       </Invoice>
     </PurchaseInvoices>
     <SalesInvoices>
       <Invoice>
-        <InvoiceNo>AAA</InvoiceNo>
+        <InvoiceNo>OWN00000</InvoiceNo>
         <CustomerInfo>
-          <CustomerID>444444444</CustomerID>
-          <VATRegistrationNumber>444444444</VATRegistrationNumber>
+          <CustomerID/>
+          <VATRegistrationNumber>LTAAAAAAAAA</VATRegistrationNumber>
           <RegistrationNumber>ND</RegistrationNumber>
           <Country>LT</Country>
-          <Name>UAB test</Name>
+          <Name>name3</Name>
         </CustomerInfo>
-        <InvoiceDate>2018-11-09</InvoiceDate>
+        <InvoiceDate>2019-01-08</InvoiceDate>
         <InvoiceType>SF</InvoiceType>
         <SpecialTaxation/>
         <References/>
-        <VATPointDate>2018-11-09</VATPointDate>
+        <VATPointDate>2019-01-08</VATPointDate>
         <DocumentTotals>
           <DocumentTotal>
-            <TaxableValue>46.66</TaxableValue>
+            <TaxableValue>0.47</TaxableValue>
             <TaxCode>PVM1</TaxCode>
             <TaxPercentage>21</TaxPercentage>
-            <Amount>9.80</Amount>
-            <VATPointDate2>2018-11-09</VATPointDate2>
+            <Amount>0.10</Amount>
+            <VATPointDate2>2019-01-08</VATPointDate2>
           </DocumentTotal>
         </DocumentTotals>
       </Invoice>
       <Invoice>
-        <InvoiceNo>XXXAAA</InvoiceNo>
+        <InvoiceNo>OWN1111</InvoiceNo>
         <CustomerInfo>
-          <CustomerID>555555555</CustomerID>
-          <VATRegistrationNumber>ND</VATRegistrationNumber>
-          <RegistrationNumber>555555555</RegistrationNumber>
+          <CustomerID>343434343</CustomerID>
+          <VATRegistrationNumber>LT343434343</VATRegistrationNumber>
+          <RegistrationNumber>ND</RegistrationNumber>
           <Country>LT</Country>
-          <Name>UAB test</Name>
+          <Name>name1</Name>
         </CustomerInfo>
-        <InvoiceDate>2018-11-09</InvoiceDate>
+        <InvoiceDate>2019-01-08</InvoiceDate>
         <InvoiceType>SF</InvoiceType>
         <SpecialTaxation/>
         <References/>
-        <VATPointDate>2018-11-09</VATPointDate>
+        <VATPointDate>2019-01-08</VATPointDate>
         <DocumentTotals>
           <DocumentTotal>
-            <TaxableValue>15.33</TaxableValue>
+            <TaxableValue>15.00</TaxableValue>
+            <TaxCode>PVM1</TaxCode>
+            <TaxPercentage>21</TaxPercentage>
+            <Amount>3.15</Amount>
+            <VATPointDate2>2019-01-08</VATPointDate2>
+          </DocumentTotal>
+        </DocumentTotals>
+      </Invoice>
+      <Invoice>
+        <InvoiceNo>OWN1111</InvoiceNo>
+        <CustomerInfo>
+          <CustomerID>000004466688</CustomerID>
+          <VATRegistrationNumber>LT000004466688</VATRegistrationNumber>
+          <RegistrationNumber>ND</RegistrationNumber>
+          <Country>LT</Country>
+          <Name>name4</Name>
+        </CustomerInfo>
+        <InvoiceDate>2019-01-08</InvoiceDate>
+        <InvoiceType>SF</InvoiceType>
+        <SpecialTaxation/>
+        <References/>
+        <VATPointDate>2019-01-08</VATPointDate>
+        <DocumentTotals>
+          <DocumentTotal>
+            <TaxableValue>20.76</TaxableValue>
             <TaxCode>PVM5</TaxCode>
             <TaxPercentage xsi:nil="true"/>
             <Amount>0.00</Amount>
-            <VATPointDate2>2018-11-09</VATPointDate2>
+            <VATPointDate2>2019-01-08</VATPointDate2>
           </DocumentTotal>
         </DocumentTotals>
       </Invoice>
