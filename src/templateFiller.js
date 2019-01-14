@@ -1,19 +1,18 @@
-const _ = require('lodash');
 const dateFormat = require('dateformat');
 
 function resolveField(field, dataSource) {
 	let resolvedField = {};
-	const type = field["_type"];
+	const type = field['_type'];
 
-	if (type === "date") {
-		const format = field["format"];
+	if (type === 'date') {
+		const format = field['format'];
 
 		let date;
-		if (!field["src"]){
+		if (!field['src']){
 			date = Date.now();
 
 		} else {
-			date = dataSource[field["src"]];
+			date = dataSource[field['src']];
 		}
 		resolvedField = dateFormat(date, format);
 	}

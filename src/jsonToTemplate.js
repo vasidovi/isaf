@@ -1,4 +1,4 @@
-// const json = {};	
+// const json = {};
 // 	json.iSAFFile
 // 	json.Header = {};
 // 	json.Header.FileDescription = {};
@@ -19,13 +19,14 @@
 
 const fs = require('fs');
 const templateFiller = require('./templateFiller');
-const config = require('config');
 
-function getJson(dataSource){
-	let json ={};
-		const isafTemplate = JSON.parse(fs.readFileSync('templates/isaf.json', 'utf8'));
-    json = templateFiller.fill(isafTemplate, dataSource);
-	
+function getJson(dataSource) {
+	let json = {};
+	const isafTemplate = JSON.parse(
+		fs.readFileSync('templates/isaf.json', 'utf8')
+	);
+	json = templateFiller.fill(isafTemplate, dataSource);
+
 	return json;
 }
 
