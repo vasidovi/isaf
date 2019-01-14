@@ -3,9 +3,7 @@ const fs = require('fs');
 const xlsxDataToJson = require('../src/xlsxDataToJson.js');
 const sinon = require('sinon');
 
-
 describe('xlsxDataToJson', function () {
-
 	const jsonOutputExample = JSON.parse(fs.readFileSync('test/data/isaf-structure.json', 'utf8'));
 	const now = new Date(jsonOutputExample.Header.FileDescription.FileDateCreated);
 	let sandbox;
@@ -21,29 +19,25 @@ describe('xlsxDataToJson', function () {
 		clock.restore();
 	});
 
-
-	function sortByStringField(a, b, field) {
+	function sortByStringField (a, b, field) {
 		if (a[field] < b[field])
-			return -1;
+			{return -1;}
 		if (a[field] > b[field])
-			return 1;
+			{return 1;}
 		return 0;
 	}
 
-	function recurse(obj, filter, callback) {
-
+	function recurse (obj, filter, callback) {
 		if (filter(obj)) {
 			callback(obj);
-			return
+			return;
 		}
 		if (typeof obj === 'object') {
 			Object.keys(obj).forEach(key => {
-				recurse(obj[key], filter, callback)
-			})
+				recurse(obj[key], filter, callback);
+			});
 		}
 	}
-
-
 
 	it('should generate json from xlsx data', function () {
 		const path = 'test/data/sample.xlsx';
@@ -61,13 +55,12 @@ describe('xlsxDataToJson', function () {
 
 		// json.SourceDocuments.PurchaseInvoices.Invoice.sort((a, b) => sortByStringField(a, b, "InvoiceNo"));
 		// jsonOutputExample.SourceDocuments.PurchaseInvoices.Invoice.sort((a, b) => sortByStringField(a, b, "InvoiceNo"));
-		["Name", "InvoiceNo", "TaxableValue"].forEach(field => {
-			recurse(json, f => Array.isArray(f) && f.length && f[0][field], f => f.sort((a, b) => sortByStringField(a, b, field)))
-			recurse(jsonOutputExample, f => Array.isArray(f) && f.length && f[0][field], f => f.sort((a, b) => sortByStringField(a, b, field)))
+		['Name', 'InvoiceNo', 'TaxableValue'].forEach(field => {
+			recurse(json, f => Array.isArray(f) && f.length && f[0][field], f => f.sort((a, b) => sortByStringField(a, b, field)));
+			recurse(jsonOutputExample, f => Array.isArray(f) && f.length && f[0][field], f => f.sort((a, b) => sortByStringField(a, b, field)));
 		});
 		// json.SourceDocuments.SalesInvoices.Invoice.sort((a, b) => sortByStringField(a, b, "InvoiceNo"));
 		// jsonOutputExample.SourceDocuments.SalesInvoices.Invoice.sort((a, b) => sortByStringField(a, b, "InvoiceNo"));
-
 
 		fs.writeFileSync('test/out/out.json', JSON.stringify(json));
 		expect(json).to.deep.equal(jsonOutputExample);
