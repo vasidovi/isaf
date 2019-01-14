@@ -1,0 +1,67 @@
+{
+  "Workbook": {
+    "info" : {
+      "invoicePrefix" : "OWN",
+      "pvmCodes": {
+        "PVM1" : 21, 
+        "PVM2": 9,
+        "PVM5": 0,
+        "PVM100": 0
+      }
+    },
+    "sheets": {
+      "credentials": "Rekvizitai"
+    },
+    "invoices": [{
+        "sheetName" : "Operacijos",
+        "date": "C",
+        "no": "D",
+        "id": "E",
+        "taxes": [{
+            "taxAmount": "H",
+            "taxableValue": "I",
+            "taxCode": "J"
+          },
+          {
+            "taxAmount": "X",
+            "taxableValue": "W",
+            "taxCode": "Y"
+          },
+          {
+            "taxAmount": "T",
+            "taxableValue": "S",
+            "isCredit": true
+          },
+          {
+            "taxAmount": "T",
+            "taxableValue": "R",
+            "isCredit": true
+          }
+        ]
+      },
+      { "sheetName" :"Sanaudos",
+        "date": "B",
+        "no": "C",
+        "id": "D",
+        "taxes": [{
+          "taxAmount": "I",
+          "taxableValue": "F"
+        }, {
+          "taxableValue": "G",
+          "defaultTaxCode" : 5
+
+        }, {
+          "taxAmount": "N",
+          "taxableValue": "L"
+        }, {
+          "taxAmount": "N",
+          "taxableValue": "O"
+        }, {
+          "taxableValue": "M",
+          "taxCode": "P"
+        }]
+      }
+    ]
+
+  }
+}
