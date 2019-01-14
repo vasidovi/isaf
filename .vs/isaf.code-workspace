@@ -9,6 +9,7 @@
 			"node_modules": true,
 			"package-lock.json": true,
 			"test/personalData": true
-		}
-	}
+		},
+		"eslint.autoFixOnSave": true,
+	},
 }

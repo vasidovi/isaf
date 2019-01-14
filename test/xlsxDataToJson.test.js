@@ -24,7 +24,7 @@ describe('xlsxDataToJson', function () {
 
 
 	it('should generate json from xlsx data', function () {	
-		const path = "test/data/sample.xlsx";
+		const path = 'test/data/sample.xlsx';
 		const startDate = new Date(2019, 0, 1);
 		const endDate = new Date(startDate);
 		endDate.setMonth(endDate.getMonth() + 1);
@@ -32,7 +32,7 @@ describe('xlsxDataToJson', function () {
 
 		const json = xlsxDataToJson.genrateJson(path, startDate, endDate);
 
-			fs.writeFileSync('test/out/out.json', JSON.stringify(json));
+		fs.writeFileSync('test/out/out.json', JSON.stringify(json));
 		expect(json).to.deep.equal(jsonOutputExample);
 	});
 });

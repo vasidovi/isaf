@@ -1,7 +1,8 @@
 {
 	"env": {
 		"es6": true,
-		"node": true
+		"node": true,
+		"mocha": true
 	},
 	"extends": "eslint:recommended",
 	"parserOptions": {
@@ -9,24 +10,11 @@
 		"sourceType": "module"
 	},
 	"rules": {
-		"no-undef": "warn",
-		"no-unused-vars":"warn",
-		"indent": [
-			"warn",
-			"tab"
-		],
-		"linebreak-style": [
-			"warn",
-			"windows"
-		],
-		"quotes": [
-			"warn",
-			"single"
-		],
-		"semi": [
-			"warn",
-			"always"
-		],
-		"no-console": "off"
-	}
+		"no-console": "warn",
+		"mocha/no-exclusive-tests": "warn"
+	},
+	"plugins": [
+		"mocha",
+		"prettier"
+	]
 }
