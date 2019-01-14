@@ -1,7 +1,6 @@
 var jsonxml = require('js2xmlparser');
 
 var jsonToXml = function (json) {
-
 	var options = {
 		declaration: {
 			encoding: 'UTF-8',

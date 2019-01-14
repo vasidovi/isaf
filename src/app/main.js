@@ -7,7 +7,7 @@ const {
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 
-function createWindow() {
+function createWindow () {
 	// Create the browser window.
 	win = new BrowserWindow({
 		width: 500,
@@ -18,7 +18,7 @@ function createWindow() {
 	});
 
 	// and load the index.html of the app.
-	win.loadFile(__dirname +'/index.html');
+	win.loadFile(__dirname + '/index.html');
 
 	// Open the DevTools.
 	// win.webContents.openDevTools();
@@ -39,7 +39,6 @@ function createWindow() {
 // const xml = jsonToXml(json);
 // write to file
 // }
-
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

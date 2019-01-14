@@ -20,7 +20,7 @@
 const fs = require('fs');
 const templateFiller = require('./templateFiller');
 
-function getJson(dataSource) {
+function getJson (dataSource) {
 	let json = {};
 	const isafTemplate = JSON.parse(
 		fs.readFileSync('templates/isaf.json', 'utf8')
