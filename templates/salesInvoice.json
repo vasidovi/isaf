@@ -1,12 +1,31 @@
 {
-	"InvoiceNo": {},
-	"CustomerInfo": "@:customer obj. from customer template",
-	"InvoiceDate": {},
-	"InvoiceType": {},
+	"InvoiceNo": {
+		"_type": "string",
+		"src": "invoiceNo"
+	},
+	"CustomerInfo": {
+		"_type": "array",
+		"src": "customer",
+		"template": "customer"
+	},
+	"InvoiceDate": {
+		"_type": "date",
+		"format": "isoDate",
+		"src": "invoiceDate"
+	},
+	"InvoiceType": {"_type":"string", "src" : "type"},
 	"SpecialTaxation": {},
 	"References": {},
-	"VATPointDate": {},
+	"VATPointDate": {
+		"_type": "date",
+		"format": "isoDate",
+		"src": "invoiceDate"
+	},
 	"DocumentTotals": {
-		"DocumentTotal": []
+		"DocumentTotal": {
+			"_type": "array",
+			"src": "taxes",
+			"template": "salesDocumentTotal"
+		}
 	}
 }

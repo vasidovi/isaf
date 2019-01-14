@@ -1,6 +1,24 @@
 {
-	"TaxableValue": {},
-	"TaxCode": {},
-	"TaxPercentage": {},
-	"Amount": {}
+	"TaxableValue": {
+		"_type": "number",
+		"fixed": 2,
+		"src": "taxableValue"
+	},
+	"TaxCode": {
+		"_type": "string",
+		"src": "taxCode",
+		"default": "PVM1"
+	},
+	"TaxPercentage": {
+		"_type": "string",
+		"src": "taxPercentage",
+		"default": "21",
+		"allowOverride": true
+	},
+	"Amount": {
+		"_type": "number",
+		"fixed": 2,
+		"src": "taxAmount"
+
+	}
 }

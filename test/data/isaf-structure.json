@@ -23,8 +23,8 @@
 	"MasterFiles": {
 		"Customers": {
 			"Customer": [{
-					"CustomerID": {},
-					"VATRegistrationNumber": "LTAAAAAAAAA",
+					"CustomerID": "2",
+					"VATRegistrationNumber": "LT2AAAAAAAAA",
 					"RegistrationNumber": "ND",
 					"Country": "LT",
 					"Name": "name3"
@@ -47,8 +47,8 @@
 		},
 		"Suppliers": {
 			"Supplier": [{
-					"SupplierID": {},
-					"VATRegistrationNumber": "LTAAAAAAAAA",
+					"SupplierID": "2",
+					"VATRegistrationNumber": "LT2AAAAAAAAA",
 					"RegistrationNumber": "ND",
 					"Country": "LT",
 					"Name": "name3"
@@ -74,13 +74,13 @@
 		"PurchaseInvoices": {
 			"Invoice": [{
 					"InvoiceNo": "AAA00001",
-					"SupplierInfo": {
+					"SupplierInfo": [{
 						"SupplierID": "000004466688",
 						"VATRegistrationNumber": "LT000004466688",
 						"RegistrationNumber": "ND",
 						"Country": "LT",
 						"Name": "name4"
-					},
+					}],
 					"InvoiceDate": "2019-01-02",
 					"InvoiceType": "SF",
 					"SpecialTaxation": {},
@@ -88,23 +88,23 @@
 					"VATPointDate": "2019-01-02",
 					"RegistrationAccountDate": "2019-01-02",
 					"DocumentTotals": {
-						"DocumentTotal": {
+						"DocumentTotal": [{
 							"TaxableValue": "812.52",
 							"TaxCode": "PVM1",
 							"TaxPercentage": "21",
 							"Amount": "170.63"
-						}
+						}]
 					}
 				},
 				{
 					"InvoiceNo": "AAA00002",
-					"SupplierInfo": {
-						"SupplierID": {},
-						"VATRegistrationNumber": "LTAAAAAAAAA",
+					"SupplierInfo": [{
+						"SupplierID": "2",
+						"VATRegistrationNumber": "LT2AAAAAAAAA",
 						"RegistrationNumber": "ND",
 						"Country": "LT",
 						"Name": "name3"
-					},
+					}],
 					"InvoiceDate": "2019-01-02",
 					"InvoiceType": "SF",
 					"SpecialTaxation": {},
@@ -129,13 +129,13 @@
 				},
 				{
 					"InvoiceNo": "AAA00005",
-					"SupplierInfo": {
+					"SupplierInfo": [{
 						"SupplierID": "000004466688",
 						"VATRegistrationNumber": "LT000004466688",
 						"RegistrationNumber": "ND",
 						"Country": "LT",
 						"Name": "name4"
-					},
+					}],
 					"InvoiceDate": "2019-01-08",
 					"InvoiceType": "KS",
 					"SpecialTaxation": {},
@@ -143,23 +143,23 @@
 					"VATPointDate": "2019-01-08",
 					"RegistrationAccountDate": "2019-01-08",
 					"DocumentTotals": {
-						"DocumentTotal": {
+						"DocumentTotal": [{
 							"TaxableValue": "-19.60",
 							"TaxCode": "PVM1",
 							"TaxPercentage": "21",
 							"Amount": "-4.12"
-						}
+						}]
 					}
 				},
 				{
 					"InvoiceNo": "AAA456656565",
-					"SupplierInfo": {
-						"SupplierID": {},
-						"VATRegistrationNumber": "LTAAAAAAAAA",
+					"SupplierInfo": [{
+						"SupplierID": "2",
+						"VATRegistrationNumber": "LT2AAAAAAAAA",
 						"RegistrationNumber": "ND",
 						"Country": "LT",
 						"Name": "name3"
-					},
+					}],
 					"InvoiceDate": "2019-01-08",
 					"InvoiceType": "SF",
 					"SpecialTaxation": {},
@@ -188,13 +188,13 @@
 				},
 				{
 					"InvoiceNo": "žžž455646555",
-					"SupplierInfo": {
+					"SupplierInfo": [{
 						"SupplierID": "222333888",
 						"VATRegistrationNumber": "ND",
 						"RegistrationNumber": "222333888",
 						"Country": "LT",
 						"Name": "name2"
-					},
+					}],
 					"InvoiceDate": "2019-01-08",
 					"InvoiceType": "SF",
 					"SpecialTaxation": {},
@@ -202,12 +202,12 @@
 					"VATPointDate": "2019-01-08",
 					"RegistrationAccountDate": "2019-01-08",
 					"DocumentTotals": {
-						"DocumentTotal": {
+						"DocumentTotal": [{
 							"TaxableValue": "11.37",
 							"TaxCode": "PVM1",
 							"TaxPercentage": "21",
 							"Amount": "2.39"
-						}
+						}]
 					}
 				}
 			]
@@ -215,68 +215,68 @@
 		"SalesInvoices": {
 			"Invoice": [{
 					"InvoiceNo": "OWN00000",
-					"CustomerInfo": {
-						"CustomerID": {},
-						"VATRegistrationNumber": "LTAAAAAAAAA",
+					"CustomerInfo": [{
+						"CustomerID": "2",
+						"VATRegistrationNumber": "LT2AAAAAAAAA",
 						"RegistrationNumber": "ND",
 						"Country": "LT",
 						"Name": "name3"
-					},
+					}],
 					"InvoiceDate": "2019-01-08",
 					"InvoiceType": "SF",
 					"SpecialTaxation": {},
 					"References": {},
 					"VATPointDate": "2019-01-08",
 					"DocumentTotals": {
-						"DocumentTotal": {
+						"DocumentTotal": [{
 							"TaxableValue": "0.47",
 							"TaxCode": "PVM1",
 							"TaxPercentage": "21",
 							"Amount": "0.10",
 							"VATPointDate2": "2019-01-08"
-						}
+						}]
 					}
 				},
 				{
 					"InvoiceNo": "OWN1111",
-					"CustomerInfo": {
+					"CustomerInfo": [{
 						"CustomerID": "343434343",
 						"VATRegistrationNumber": "LT343434343",
 						"RegistrationNumber": "ND",
 						"Country": "LT",
 						"Name": "name1"
-					},
+					}],
 					"InvoiceDate": "2019-01-08",
 					"InvoiceType": "SF",
 					"SpecialTaxation": {},
 					"References": {},
 					"VATPointDate": "2019-01-08",
 					"DocumentTotals": {
-						"DocumentTotal": {
+						"DocumentTotal": [{
 							"TaxableValue": "15.00",
 							"TaxCode": "PVM1",
 							"TaxPercentage": "21",
 							"Amount": "3.15",
 							"VATPointDate2": "2019-01-08"
-						}
+						}]
 					}
 				},
 				{
 					"InvoiceNo": "OWN1111",
-					"CustomerInfo": {
+					"CustomerInfo": [{
 						"CustomerID": "000004466688",
 						"VATRegistrationNumber": "LT000004466688",
 						"RegistrationNumber": "ND",
 						"Country": "LT",
 						"Name": "name4"
-					},
+					}],
 					"InvoiceDate": "2019-01-08",
 					"InvoiceType": "SF",
 					"SpecialTaxation": {},
 					"References": {},
 					"VATPointDate": "2019-01-08",
 					"DocumentTotals": {
-						"DocumentTotal": {
+						"DocumentTotal": [{
 							"TaxableValue": "20.76",
 							"TaxCode": "PVM5",
 							"TaxPercentage": {
@@ -286,7 +286,7 @@
 							},
 							"Amount": "0.00",
 							"VATPointDate2": "2019-01-08"
-						}
+						}]
 					}
 				}
 			]

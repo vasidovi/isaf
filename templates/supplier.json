@@ -1,7 +1,7 @@
 {
-	"SupplierID": "@:supplier from supplier template",
-	"VATRegistrationNumber": "ND",
-	"RegistrationNumber": "ND",
+	"SupplierID":  {"_type":"string", "src" : "code"},
+	"VATRegistrationNumber":  {"_type":"string", "default": "ND", "src" : "VATregistrationNumber"},
+	"RegistrationNumber": {"_type":"string", "default": "ND", "src" : "registrationNumber"},
 	"Country": "LT",
-	"Name": {}
+	"Name": {"_type":"string", "src" : "name"}
 }

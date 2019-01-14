@@ -1,13 +1,33 @@
 {
-	"InvoiceNo": {},
-	"SupplierInfo": "@:supplier obj. from supplier template",
-	"InvoiceDate": {},
-	"InvoiceType": {},
+	"InvoiceNo": {"_type":"string", "src" : "invoiceNo"},
+	"SupplierInfo": {
+		"_type": "array",
+		"src": "supplier",
+		"template": "supplier"
+	},
+	"InvoiceDate": {
+		"_type": "date",
+		"format": "isoDate",
+		"src": "invoiceDate"
+	},
+	"InvoiceType": {"_type":"string", "src" : "type"},
 	"SpecialTaxation": {},
 	"References": {},
-	"VATPointDate": {},
-	"RegistrationAccountDate": {},
+	"VATPointDate": {
+		"_type": "date",
+		"format": "isoDate",
+		"src": "invoiceDate"
+	},
+	"RegistrationAccountDate": {
+		"_type": "date",
+		"format": "isoDate",
+		"src": "invoiceDate"
+	},
 	"DocumentTotals": {
-		"DocumentTotal":[]
+		"DocumentTotal": {
+			"_type": "array",
+			"src": "taxes",
+			"template": "purchaseDocumentTotal"
+		}
 	}
 }

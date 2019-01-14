@@ -26,7 +26,6 @@ function getJson(dataSource) {
 		fs.readFileSync('templates/isaf.json', 'utf8')
 	);
 	json = templateFiller.fill(isafTemplate, dataSource);
-
 	return json;
 }
 

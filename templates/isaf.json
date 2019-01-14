@@ -6,7 +6,10 @@
 	"Header": {
 		"FileDescription": {
 			"FileVersion": "iSAF1.2",
-			"FileDateCreated": { "_type": "date", "format": "isoUtcDateTime"},
+			"FileDateCreated": {
+				"_type": "date",
+				"format": "isoUtcDateTime"
+			},
 			"DataType": "F",
 			"SoftwareCompanyName": {},
 			"SoftwareName": {},
@@ -15,25 +18,49 @@
 			"NumberOfParts": "1",
 			"PartNumber": "1",
 			"SelectionCriteria": {
-				"SelectionStartDate": {"_type": "date", "format": "isoDate", "src": "startDate"},
-				"SelectionEndDate": {"_type": "date", "format": "isoDate", "src": "endDate"}
+				"SelectionStartDate": {
+					"_type": "date",
+					"format": "isoDate",
+					"src": "startDate"
+				},
+				"SelectionEndDate": {
+					"_type": "date",
+					"format": "isoDate",
+					"src": "endDate"
+				}
 			}
 		}
 	},
 	"MasterFiles": {
 		"Customers": {
-			"Customer": [],
-			"Suppliers": {
-				"Supplier": []
+			"Customer": {
+				"_type": "array",
+				"src": "customers",
+				"template": "customer"
 			}
 		},
-		"SourceDocuments": {
-			"PurchaseInvoices": {
-				"Invoice": []
-			},
+		"Suppliers": {
+			"Supplier": {
+				"_type": "array",
+				"src": "suppliers",
+				"template": "supplier"
+			}
+		}
+	},
+	"SourceDocuments": {
+		"PurchaseInvoices": {
+			"Invoice": {
+				"_type": "array",
+				"src": "purchaseInvoices",
+				"template": "purchaseInvoice"
+			}
+		},
 
-			"SalesInvoices": {
-				"Invoice": []
+		"SalesInvoices": {
+			"Invoice": {
+				"_type": "array",
+				"src": "salesInvoices",
+				"template": "salesInvoice"
 			}
 		}
 	}

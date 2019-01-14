@@ -20,8 +20,8 @@
   <MasterFiles>
     <Customers>
       <Customer>
-        <CustomerID/>
-        <VATRegistrationNumber>LTAAAAAAAAA</VATRegistrationNumber>
+        <CustomerID>2</CustomerID>
+        <VATRegistrationNumber>LT2AAAAAAAAA</VATRegistrationNumber>
         <RegistrationNumber>ND</RegistrationNumber>
         <Country>LT</Country>
         <Name>name3</Name>
@@ -43,8 +43,8 @@
     </Customers>
     <Suppliers>
       <Supplier>
-        <SupplierID/>
-        <VATRegistrationNumber>LTAAAAAAAAA</VATRegistrationNumber>
+        <SupplierID>2</SupplierID>
+        <VATRegistrationNumber>LT2AAAAAAAAA</VATRegistrationNumber>
         <RegistrationNumber>ND</RegistrationNumber>
         <Country>LT</Country>
         <Name>name3</Name>
@@ -94,8 +94,8 @@
       <Invoice>
         <InvoiceNo>AAA00002</InvoiceNo>
         <SupplierInfo>
-          <SupplierID/>
-          <VATRegistrationNumber>LTAAAAAAAAA</VATRegistrationNumber>
+          <SupplierID>2</SupplierID>
+          <VATRegistrationNumber>LT2AAAAAAAAA</VATRegistrationNumber>
           <RegistrationNumber>ND</RegistrationNumber>
           <Country>LT</Country>
           <Name>name3</Name>
@@ -148,8 +148,8 @@
       <Invoice>
         <InvoiceNo>AAA456656565</InvoiceNo>
         <SupplierInfo>
-          <SupplierID/>
-          <VATRegistrationNumber>LTAAAAAAAAA</VATRegistrationNumber>
+          <SupplierID>2</SupplierID>
+          <VATRegistrationNumber>LT2AAAAAAAAA</VATRegistrationNumber>
           <RegistrationNumber>ND</RegistrationNumber>
           <Country>LT</Country>
           <Name>name3</Name>
@@ -204,8 +204,8 @@
       <Invoice>
         <InvoiceNo>OWN00000</InvoiceNo>
         <CustomerInfo>
-          <CustomerID/>
-          <VATRegistrationNumber>LTAAAAAAAAA</VATRegistrationNumber>
+          <CustomerID>2</CustomerID>
+          <VATRegistrationNumber>LT2AAAAAAAAA</VATRegistrationNumber>
           <RegistrationNumber>ND</RegistrationNumber>
           <Country>LT</Country>
           <Name>name3</Name>
