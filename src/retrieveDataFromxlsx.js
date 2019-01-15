@@ -19,7 +19,10 @@ function retrieveDataFromXlsx (path, startDate, endDate) {
 		invoices = invoices.concat(currentInvoices);
 	});
 
-	return { credentials, invoices };
+	return {
+		credentials,
+		invoices
+	};
 }
 
 const getCredentials = function (worksheet) {
@@ -56,11 +59,15 @@ const getInvoices = function (worksheet, startDate, endDate, metadata) {
 		const dateString = getCellOrEmpty(worksheet, metadata.date + row, 'w');
 		const date = getDateOrNull(dateString);
 
-		if (date == null || date < startDate || date > endDate) { return; }
+		if (date == null || date < startDate || date > endDate) {
+			return;
+		}
 
 		const taxes = getTaxes(worksheet, metadata, row);
 
-		if (taxes.length == 0) { return; }
+		if (taxes.length === 0) {
+			return;
+		}
 
 		const invoice = {
 			'invoiceNo': getCellOrEmpty(worksheet, metadata.no + row),
@@ -68,7 +75,9 @@ const getInvoices = function (worksheet, startDate, endDate, metadata) {
 			'partnerId': getCellOrEmpty(worksheet, metadata.id + row),
 			'taxes': taxes
 		};
-		if (invoice.invoiceNo) { invoices.push(invoice); }
+		if (invoice.invoiceNo) {
+			invoices.push(invoice);
+		}
 	});
 
 	return invoices;
@@ -85,7 +94,9 @@ const getTaxes = function (worksheet, invoiceMetadata, row) {
 
 	taxesMetadata.forEach(taxMetadata => {
 		const taxInstance = getTax(worksheet, row, taxMetadata);
-		if (taxInstance) { taxes.push(taxInstance); }
+		if (taxInstance) {
+			taxes.push(taxInstance);
+		}
 	});
 
 	return taxes;
@@ -94,14 +105,20 @@ const getTaxes = function (worksheet, invoiceMetadata, row) {
 const getTax = function (worksheet, row, taxMetadata) {
 	let taxableValue = getCellOrEmpty(worksheet, taxMetadata.taxableValue + row);
 	// checks is not 0, '', NaN etc.
-	if (!taxableValue || !parseFloat(taxableValue)) { return null; }
+	if (!taxableValue || !parseFloat(taxableValue)) {
+		return null;
+	}
 
 	let taxAmount = getCellOrEmpty(worksheet, taxMetadata.taxAmount + row);
-	if (taxAmount === '') { taxAmount = 0; }
+	if (taxAmount === '') {
+		taxAmount = 0;
+	}
 
 	let taxCode = taxMetadata.taxCode ? getCellOrEmpty(worksheet, taxMetadata.taxCode + row) : '';
 
-	if (!taxCode && taxMetadata.defaultTaxCode) { taxCode = taxMetadata.defaultTaxCode; }
+	if (!taxCode && taxMetadata.defaultTaxCode) {
+		taxCode = taxMetadata.defaultTaxCode;
+	}
 
 	const isCredit = taxMetadata.isCredit;
 
@@ -116,7 +133,7 @@ const getTax = function (worksheet, row, taxMetadata) {
 const getDateOrNull = function (dateString) {
 	const timestamp = Date.parse(dateString);
 
-	if (isNaN(timestamp) == false) {
+	if (isNaN(timestamp) === false) {
 		return new Date(timestamp);
 	} else {
 		return null;

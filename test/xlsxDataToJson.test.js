@@ -1,4 +1,11 @@
-const expect = require('chai').expect;
+const chai = require('chai');
+const deepEqualInAnyOrder = require('deep-equal-in-any-order');
+chai.use(deepEqualInAnyOrder);
+
+const {
+	expect
+} = chai;
+
 const fs = require('fs');
 const xlsxDataToJson = require('../src/xlsxDataToJson.js');
 const sinon = require('sinon');
@@ -10,7 +17,7 @@ describe('xlsxDataToJson', function () {
 	let clock;
 
 	beforeEach(() => {
-		sandbox = sinon.sandbox.create();
+		sandbox = sinon.createSandbox();
 		clock = sinon.useFakeTimers(now.getTime());
 	});
 
@@ -18,26 +25,6 @@ describe('xlsxDataToJson', function () {
 		sandbox.restore();
 		clock.restore();
 	});
-
-	function sortByStringField (a, b, field) {
-		if (a[field] < b[field])
-			{return -1;}
-		if (a[field] > b[field])
-			{return 1;}
-		return 0;
-	}
-
-	function recurse (obj, filter, callback) {
-		if (filter(obj)) {
-			callback(obj);
-			return;
-		}
-		if (typeof obj === 'object') {
-			Object.keys(obj).forEach(key => {
-				recurse(obj[key], filter, callback);
-			});
-		}
-	}
 
 	it('should generate json from xlsx data', function () {
 		const path = 'test/data/sample.xlsx';
@@ -47,22 +34,8 @@ describe('xlsxDataToJson', function () {
 		endDate.setDate(endDate.getDate() - 1);
 
 		const json = xlsxDataToJson.genrateJson(path, startDate, endDate);
-		// json.MasterFiles.Customers.Customer.sort((a, b) => sortByStringField(a, b, "Name"));
-		// jsonOutputExample.MasterFiles.Customers.Customer.sort((a, b) => sortByStringField(a, b, "Name"));
-
-		// json.MasterFiles.Suppliers.Supplier.sort((a, b) => sortByStringField(a, b, "Name"));
-		// jsonOutputExample.MasterFiles.Suppliers.Supplier.sort((a, b) => sortByStringField(a, b, "Name"));
-
-		// json.SourceDocuments.PurchaseInvoices.Invoice.sort((a, b) => sortByStringField(a, b, "InvoiceNo"));
-		// jsonOutputExample.SourceDocuments.PurchaseInvoices.Invoice.sort((a, b) => sortByStringField(a, b, "InvoiceNo"));
-		['Name', 'InvoiceNo', 'TaxableValue'].forEach(field => {
-			recurse(json, f => Array.isArray(f) && f.length && f[0][field], f => f.sort((a, b) => sortByStringField(a, b, field)));
-			recurse(jsonOutputExample, f => Array.isArray(f) && f.length && f[0][field], f => f.sort((a, b) => sortByStringField(a, b, field)));
-		});
-		// json.SourceDocuments.SalesInvoices.Invoice.sort((a, b) => sortByStringField(a, b, "InvoiceNo"));
-		// jsonOutputExample.SourceDocuments.SalesInvoices.Invoice.sort((a, b) => sortByStringField(a, b, "InvoiceNo"));
 
 		fs.writeFileSync('test/out/out.json', JSON.stringify(json));
-		expect(json).to.deep.equal(jsonOutputExample);
+		expect(json).to.deep.equalInAnyOrder(jsonOutputExample);
 	});
 });
