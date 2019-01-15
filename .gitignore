@@ -5,3 +5,4 @@ personalData
 config/*
 !config/default.json
 ~*
+out

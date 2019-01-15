@@ -4,6 +4,8 @@ const {
 } = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
+const path = require('path');
+
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 
@@ -18,7 +20,7 @@ function createWindow () {
 	});
 
 	// and load the index.html of the app.
-	win.loadFile(__dirname + '/index.html');
+	win.loadFile(path.join(__dirname, 'index.html'));
 
 	// Open the DevTools.
 	// win.webContents.openDevTools();
@@ -31,14 +33,6 @@ function createWindow () {
 		win = null;
 	});
 }
-
-// let date;
-// let path;
-// button.onClick(()=> {
-// const json = xlsxtoJson(path, date);
-// const xml = jsonToXml(json);
-// write to file
-// }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
