@@ -7,16 +7,17 @@
   "main": "src/app/main.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec --timeout 10000",
+    "test-prod": "set NODE_ENV=production&& npm test -- --grep @prod",
     "start": "electron .",
     "lint": "./node_modules/.bin/eslint src/**/*.js",
     "make": "electron-forge make"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
+    "advanced-json-path": "^1.0.8",
     "config": "^3.0.1",
     "dateformat": "^3.0.3",
+    "electron-squirrel-startup": "^1.0.0",
     "js2xmlparser": "^3.0.0",
-    "lodash": "^4.17.11",
     "xlsx": "^0.14.1"
   },
   "devDependencies": {
@@ -26,6 +27,7 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.22",
     "@electron-forge/maker-zip": "^6.0.0-beta.22",
     "chai": "^4.2.0",
+    "xml2js": "^0.4.19",
     "deep-equal-in-any-order": "^1.0.10",
     "electron": "4.0.0",
     "eslint": "^5.3.0",

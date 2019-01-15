@@ -65,7 +65,9 @@ function genrateJson (path, startDate, endDate) {
 
 		if (!customer) {
 			customer = getInvoicePartner(invoice, credentials);
-			customers.push(customer);
+			if (!customers.some(c => c.code === customer.code)) {
+				customers.push(customer);
+			}
 		}
 
 		invoice.customer = [customer];
@@ -102,7 +104,9 @@ function genrateJson (path, startDate, endDate) {
 
 		if (!supplier) {
 			supplier = getInvoicePartner(invoice, credentials);
-			suppliers.push(supplier);
+			if (!suppliers.some(s => s.code === supplier.code)) {
+				suppliers.push(supplier);
+			}
 		}
 		invoice.supplier = [supplier];
 	});

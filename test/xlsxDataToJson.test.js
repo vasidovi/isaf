@@ -10,8 +10,10 @@ const fs = require('fs');
 const xlsxDataToJson = require('../src/xlsxDataToJson.js');
 const sinon = require('sinon');
 
+let path = 'test/data/isaf-structure.json';
+
 describe('xlsxDataToJson', function () {
-	const jsonOutputExample = JSON.parse(fs.readFileSync('test/data/isaf-structure.json', 'utf8'));
+	const jsonOutputExample = JSON.parse(fs.readFileSync(path, 'utf8'));
 	const now = new Date(jsonOutputExample.Header.FileDescription.FileDateCreated);
 	let sandbox;
 	let clock;
@@ -36,6 +38,7 @@ describe('xlsxDataToJson', function () {
 		const json = xlsxDataToJson.genrateJson(path, startDate, endDate);
 
 		fs.writeFileSync('test/out/out.json', JSON.stringify(json));
+
 		expect(json).to.deep.equalInAnyOrder(jsonOutputExample);
 	});
 });

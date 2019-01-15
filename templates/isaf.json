@@ -14,7 +14,7 @@
 			"SoftwareCompanyName": {},
 			"SoftwareName": {},
 			"SoftwareVersion": {},
-			"RegistrationNumber": "121199229",
+			"RegistrationNumber": {"_type": "string", "src": "configuration.info.ownerCode"},
 			"NumberOfParts": "1",
 			"PartNumber": "1",
 			"SelectionCriteria": {

@@ -1,5 +1,10 @@
 const dateFormat = require('dateformat');
 const fs = require('fs');
+const JSONPath = require('advanced-json-path');
+
+function resolveSource (dataSource, field) {
+	return JSONPath(dataSource, '$.' + field.src);
+}
 
 function resolveDate (field, dataSource) {
 	const format = field['format'];
@@ -8,14 +13,14 @@ function resolveDate (field, dataSource) {
 	if (!field['src']) {
 		date = Date.now();
 	} else {
-		date = dataSource[field['src']];
+		date = resolveSource(dataSource, field);
 	}
 	return dateFormat(date, format);
 }
 
 function resolveArray (field, dataSource) {
 	const resolvedField = [];
-	const data = dataSource[field.src];
+	const data = resolveSource(dataSource, field);
 	const template = JSON.parse(
 		fs.readFileSync(`templates/${field.template}.json`, 'utf8')
 	);
@@ -30,9 +35,9 @@ function resolveArray (field, dataSource) {
 
 function resolveString (field, dataSource) {
 	let resolvedField = '';
-	const data = dataSource[field.src];
+	const data = resolveSource(dataSource, field);
 
-	if (data === undefined && field.default) {
+	if ((data === undefined || data === false) && field.default) {
 		resolvedField = field.default;
 	} else if (field.allowOverride && typeof data === 'object') {
 		resolvedField = data;
@@ -44,7 +49,8 @@ function resolveString (field, dataSource) {
 }
 
 function resolveNumber (field, dataSource) {
-	let resolvedField = parseFloat(dataSource[field.src]);
+	const data = resolveSource(dataSource, field);
+	let resolvedField = parseFloat(data);
 
 	if (field.fixed !== undefined) {
 		resolvedField = resolvedField.toFixed(field.fixed);

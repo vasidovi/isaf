@@ -2,6 +2,7 @@
   "Workbook": {
     "info" : {
       "invoicePrefix" : "OWN",
+      "ownerCode": "121199229",
       "pvmCodes": {
         "PVM1" : 21, 
         "PVM2": 9,
@@ -58,7 +59,9 @@
           "taxableValue": "O"
         }, {
           "taxableValue": "M",
-          "taxCode": "P"
+          "taxCode": "P",
+          "defaultTaxCode" : 5
+
         }]
       }
     ]
