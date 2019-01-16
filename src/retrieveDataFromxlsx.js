@@ -131,7 +131,7 @@ const getTax = function (worksheet, row, taxMetadata) {
 };
 
 const getDateOrNull = function (dateString) {
-	const timestamp = Date.parse(dateString);
+	const timestamp = Date.parse(dateString + ' UTC');
 
 	if (isNaN(timestamp) === false) {
 		return new Date(timestamp);
