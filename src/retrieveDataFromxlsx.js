@@ -70,7 +70,7 @@ const getInvoices = function (worksheet, startDate, endDate, metadata) {
 		}
 
 		const invoice = {
-			'invoiceNo': getCellOrEmpty(worksheet, metadata.no + row),
+			'invoiceNo': getCellOrEmpty(worksheet, metadata.no + row).replace(/[^a-z0-9ąčęėįšųūž]/gmi, ''),
 			'invoiceDate': dateFormat(date, 'isoDate'),
 			'partnerId': getCellOrEmpty(worksheet, metadata.id + row),
 			'taxes': taxes

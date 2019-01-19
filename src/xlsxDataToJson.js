@@ -65,9 +65,14 @@ function genrateJson (path, startDate, endDate) {
 
 		if (!customer) {
 			customer = getInvoicePartner(invoice, credentials);
-			if (!customers.some(c => c.code === customer.code)) {
-				customers.push(customer);
+			const customerWithSameCodeId = customers.findIndex(c => c.code === customer.code);
+			// index not found
+			if (customerWithSameCodeId !== -1) {
+				// customers remove customerWithSame Code
+				customers.splice(customerWithSameCodeId, 1);
+				// customers add customer
 			}
+			customers.push(customer);
 		}
 
 		invoice.customer = [customer];
@@ -79,6 +84,14 @@ function genrateJson (path, startDate, endDate) {
 		let supplier = suppliers.find(c => c.id === invoice.partnerId);
 
 		invoice.type = 'SF';
+
+		// jeigu, tarp invoice taxes yra !tax.isCredit tuomet reikia ismesti
+		//  tax.isCredit is invoice taxes[]
+		// if invoice.taxes.some( tax => !tax.isCredit)
+		const notCreditTaxes = invoice.taxes.filter(tax => !tax.isCredit);
+		if (notCreditTaxes.length > 0) {
+			invoice.taxes = notCreditTaxes;
+		}
 
 		invoice.taxes.forEach(tax => {
 			if (!tax.taxCode) {
@@ -104,6 +117,15 @@ function genrateJson (path, startDate, endDate) {
 
 		if (!supplier) {
 			supplier = getInvoicePartner(invoice, credentials);
+			const supplierWithSameCodeId = suppliers.findIndex(s => s.code === supplier.code);
+			// index not found
+			if (supplierWithSameCodeId !== -1) {
+				// customers remove customerWithSame Code
+				suppliers.splice(supplierWithSameCodeId, 1);
+				// customers add customer
+			}
+			suppliers.push(supplier);
+
 			if (!suppliers.some(s => s.code === supplier.code)) {
 				suppliers.push(supplier);
 			}
