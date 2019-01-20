@@ -5,7 +5,10 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	 crossorigin="anonymous">
-	 <style>.container-fluid{ margin: 5%}</style>
+	 <style>.container-fluid{ margin: 5%;}
+	        .btn-group-toggle{ padding: 1em 0;}
+	        #datesFields{ display: none;} 
+	 </style>
 	<title>Hello World!</title>
 </head>
 
@@ -15,15 +18,15 @@
 		<form>
 				<div class="btn-group btn-group-toggle" data-toggle="buttons">
 						<label class="btn btn-primary active">
-							<input type="radio" name="options" id="month" autocomplete="off" checked> Mėnesis
+							<input type="radio" name="options" id="month" autocomplete="off"> Mėnesis
 						</label>
-						<label class="btn btn-primary">
+						<label id="me" class="btn btn-primary">
 							<input type="radio" name="options" id="dates" autocomplete="off"> Datos
 						</label>
 					</div>
 
-					<div class="form-group row">
-							<label for="selectMonth" class="col-sm-2 col-form-label">Pasirinkti mėnesį</label>
+					<div class="form-group row" id="monthField">
+							<label for="selectMonth" class="col-sm-2 col-form-label">Mėnesis: </label>
 							<div class="col-sm-10">
 							<select class="form-control" id="selectMonth">
 								<option>1</option>
@@ -42,23 +45,24 @@
 						</div>
 						</div>
 
-
+        <div id="datesFields">
 				<div class="form-group row">
 					<label for="from" class="col-sm-2 col-form-label">Nuo :</label>
 					<div class="col-sm-10">
 						<input type="date" id="from" value="" class="form-control">
 					</div>
 				</div>
-				<div class="form-group row">
+				<div class="form-group row"> 
 					<label for="to" class="col-sm-2 col-form-label">Iki :</label>
 					<div class="col-sm-10">
 						<input type="date" id="to" class="form-control">
 					</div>
 				</div>
+			</div>
 				<div class="form-group">
 					<div class="custom-file">
 						<input type="file" class="custom-file-input" id="customFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-						<label class="custom-file-label" for="customFile">Pasirinkti excel failą</label>
+						<label class="custom-file-label" for="customFile" data-browse="ieskoti">Pasirinkti excel failą</label>
 					</div>
 
 				</div>
@@ -70,6 +74,9 @@
 		</form>
 
 	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	<script src="scripts/toggleRadioButton.js"></script>
 </body>
 
 </html>
