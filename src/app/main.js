@@ -1,6 +1,7 @@
 const {
 	app,
-	BrowserWindow
+	BrowserWindow,
+	ipcMain
 } = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -31,6 +32,14 @@ function createWindow () {
 		// in an array if your app supports multi windows, this is the time
 		// when you should delete the corresponding element.
 		win = null;
+	});
+
+	ipcMain.on('asynchronous-message', (event, arg) => {
+		console.log(['received data in main', arg]);
+		console.log(['sending data from main', arg]);
+
+		// send message to index.html
+		event.sender.send('asynchronous-reply', arg);
 	});
 }
 
