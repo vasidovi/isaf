@@ -14,7 +14,7 @@ function createWindow () {
 	// Create the browser window.
 	win = new BrowserWindow({
 		width: 400,
-		height: 400,
+		height: 450,
 		webPreferences: {
 			nodeIntegration: true
 		}
@@ -24,7 +24,7 @@ function createWindow () {
 	win.loadFile(path.join(__dirname, 'index.html'));
 
 	// Open the DevTools.
-	win.webContents.openDevTools();
+	// win.webContents.openDevTools();
 
 	// Emitted when the window is closed.
 	win.on('closed', () => {
@@ -35,7 +35,7 @@ function createWindow () {
 	});
 
 	ipcMain.on('asynchronous-message', (event, arg) => {
-		console.log(['received data in main', arg]);
+		console.log(['received data in main', arg[0]]);
 		console.log(['sending data from main', arg]);
 
 		// send message to index.html
