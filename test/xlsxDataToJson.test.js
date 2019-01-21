@@ -35,7 +35,7 @@ describe('xlsxDataToJson', function () {
 		endDate.setMonth(endDate.getMonth() + 1);
 		endDate.setDate(endDate.getDate() - 1);
 
-		const json = xlsxDataToJson.genrateJson(path, startDate, endDate);
+		const json = xlsxDataToJson.generateJson(path, startDate, endDate);
 
 		fs.writeFileSync('test/out/out.json', JSON.stringify(json));
 

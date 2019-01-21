@@ -3,7 +3,14 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
 	const ipcRenderer = require('electron').ipcRenderer;
 
-	const data = getDates();
+	const dates = getDates();
+	// const filePath = $('#isafFile').val();
+	const filePath = 'D:\\repos\\isaf\\test\\personalData\\sample12.xlsx';
+	const data = { 'startDate': dates[0],
+		'endDate': dates[1],
+		filePath
+	};
+
 	console.log(['sending data to main', data]);
 
 	// send username to main.js

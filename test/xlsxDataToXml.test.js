@@ -75,7 +75,7 @@ describe('xlsxDataToXml @prod', function () {
 			const startDate = new Date(fileDescriptionEl.SelectionStartDate[0]);
 			const endDate = new Date(fileDescriptionEl.SelectionEndDate[0]);
 
-			const jsonInput = xlsxDataToJson.genrateJson(path.join(testDataPath, testCase.xlsx), startDate, endDate);
+			const jsonInput = xlsxDataToJson.generateJson(path.join(testDataPath, testCase.xlsx), startDate, endDate);
 			const xml = jsonToXml(jsonInput);
 
 			// cannot compare xmls because of different orderings
