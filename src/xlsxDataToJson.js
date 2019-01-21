@@ -23,7 +23,7 @@ function isOfOwner (invoice) {
 	return invoice['invoiceNo'].startsWith(configuration.info.invoicePrefix);
 }
 
-function genrateJson (path, startDate, endDate) {
+function generateJson (path, startDate, endDate) {
 	const data = retrieveDataFromXlsx(path, startDate, endDate);
 	const invoices = data.invoices;
 	const credentials = data.credentials;
@@ -146,4 +146,4 @@ function genrateJson (path, startDate, endDate) {
 	return json;
 }
 
-exports.genrateJson = genrateJson;
+exports.generateJson = generateJson;

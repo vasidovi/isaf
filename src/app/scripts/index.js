@@ -9,7 +9,7 @@ $('#month').on('change', function () {
 });
 const today = new Date();
 let defMonth = today.getMonth(); // retruns  0 -11
-if (defMonth == 0) {
+if (defMonth === 0) {
 	defMonth = 12;
 }
 

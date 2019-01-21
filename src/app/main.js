@@ -1,3 +1,7 @@
+const generateJson = require('../../src/xlsxDataToJson.js').generateJson;
+const jsonToXml = require('../../src/jsonToXml.js').jsonToXml;
+const fs = require('fs');
+
 const {
 	app,
 	BrowserWindow,
@@ -34,12 +38,31 @@ function createWindow () {
 		win = null;
 	});
 
+	// onSubmit.js ipcRenderer.send() listener that sends back response to onSubmit.js using event.sender.send()
 	ipcMain.on('asynchronous-message', (event, arg) => {
-		console.log(['received data in main', arg[0]]);
+		const userInput = arg;
+
+		console.log(['received data in main', arg]);
 		console.log(['sending data from main', arg]);
+		const startDate = new Date(userInput.startDate);
+		const endDate = new Date(userInput.endDate);
+
+		const outPath = path.dirname(userInput.filePath) + '/isaf_' + (startDate.getMonth() + 1) + '.xml';
+		const json = generateJson(userInput.filePath, startDate, endDate);
+		const purchaseInvCount = json.SourceDocuments.PurchaseInvoices.Invoice.length;
+		const salesInvCount = json.SourceDocuments.SalesInvoices.Invoice.length;
+
+		const xml = jsonToXml(json);
+		fs.writeFileSync(outPath, xml);
+
+		const appResponce = {
+			outPath,
+			purchaseInvCount,
+			salesInvCount
+		};
 
 		// send message to index.html
-		event.sender.send('asynchronous-reply', arg);
+		event.sender.send('asynchronous-reply', appResponce);
 	});
 }
 
