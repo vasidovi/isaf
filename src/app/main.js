@@ -1,7 +1,6 @@
 const generateJson = require('../../src/xlsxDataToJson.js').generateJson;
 const jsonToXml = require('../../src/jsonToXml.js').jsonToXml;
 const fs = require('fs');
-const config = require('config');
 
 const {
 	app,
@@ -29,7 +28,7 @@ function createWindow () {
 	win.loadFile(path.join(__dirname, 'index.html'));
 
 	// Open the DevTools.
-	win.webContents.openDevTools();
+	// win.webContents.openDevTools();
 
 	// Emitted when the window is closed.
 	win.on('closed', () => {
@@ -44,7 +43,6 @@ function createWindow () {
 		const userInput = arg;
 
 		console.log(['received data in main', arg]);
-		console.log(['sending data from main', arg]);
 		const startDate = new Date(userInput.startDate);
 		const endDate = new Date(userInput.endDate);
 
@@ -64,6 +62,7 @@ function createWindow () {
 			salesInvCount
 		};
 
+		console.log(['sending data from main', appResponce]);
 		// send message to index.html
 		event.sender.send('asynchronous-reply', appResponce);
 	});

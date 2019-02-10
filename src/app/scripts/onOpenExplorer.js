@@ -1,3 +1,4 @@
 $('#open-explorer').click(function () {
-	window.childProcess.exec(`explorer.exe /select,"${window.outPath}"`);
+	const path = window.outFilePath || window.outPath;
+	window.childProcess.exec(`explorer.exe /select,"${path}"`);
 });

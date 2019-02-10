@@ -1,6 +1,12 @@
 document.querySelector('form').addEventListener('submit', function (event) {
 	event.preventDefault();
+	$('#modal-loader').show();
+	$('#modal-footer').hide();
+	$('#loading-dialog').modal('show');
+	setTimeout(submit, 1000);
+});
 
+async function submit () {
 	const ipcRenderer = require('electron').ipcRenderer;
 
 	const dates = getDates();
@@ -28,9 +34,12 @@ document.querySelector('form').addEventListener('submit', function (event) {
 	// ipcRenderer.on , uziregistruoja, kaip event listener on case of asynchr-reply to do sth
 	ipcRenderer.on('asynchronous-reply', (event, arg) => {
 		console.log(['received response from main', arg]);
-		window.outPath = arg.outPath;
+		$('#modal-loader').hide();
+		$('#modal-footer').show();
+		$('#modal-result').html('Suformuota įrašų: ' + (arg.purchaseInvCount + arg.salesInvCount));
+		window.outFilePath = arg.outPath;
 	});
-});
+}
 
 function getDates () {
 	let startDate;
