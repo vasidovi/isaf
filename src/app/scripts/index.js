@@ -1,4 +1,3 @@
-
 $('#dates').on('change', function () {
 	$('#datesFields').css('display', 'block');
 	$('#monthField').css('display', 'none');
@@ -23,9 +22,17 @@ $('#selectMonth').val(defMonth);
 $('#from').val(defFromDate);
 $('#to').val(defToDate);
 
+function setFileName (fileField, filePath) {
+	const fileName = window.path.basename(filePath);
+	fileField.next('.custom-file-label').html(fileName);
+}
+
 $('#isafFile').on('change', function () {
 	// get the file name
-	var fileName = $(this).val();
+	var filePath = $(this).val();
 	// replace the "Choose a file" label
-	$(this).next('.custom-file-label').html(fileName);
+	setFileName($(this), filePath);
 });
+
+const filePath = window.path.join(__dirname, window.config.get('Workbook.info.defaultInput'));
+setFileName($('#isafFile'), filePath);

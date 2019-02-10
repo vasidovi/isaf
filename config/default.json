@@ -8,7 +8,9 @@
         "PVM2": 9,
         "PVM5": 0,
         "PVM100": 0
-      }
+      },
+      "defaultInput": "../../test/personalData/sample.xlsx",
+      "defaultOutputDir": "../../test/out"
     },
     "sheets": {
       "credentials": "Rekvizitai"

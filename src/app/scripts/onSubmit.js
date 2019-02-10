@@ -4,11 +4,19 @@ document.querySelector('form').addEventListener('submit', function (event) {
 	const ipcRenderer = require('electron').ipcRenderer;
 
 	const dates = getDates();
-	// const filePath = $('#isafFile').val();
-	const filePath = 'D:\\repos\\isaf\\test\\personalData\\sample12.xlsx';
-	const data = { 'startDate': dates[0],
+	let filePath;
+	if ($('#isafFile').val()) {
+		const files = $('#isafFile')[0].files;
+		filePath = files[0].path;
+	} else {
+		filePath = window.path.join(__dirname, window.config.get('Workbook.info.defaultInput'));
+	}
+
+	const data = {
+		'startDate': dates[0],
 		'endDate': dates[1],
-		filePath
+		filePath,
+		outPath: window.outPath
 	};
 
 	console.log(['sending data to main', data]);
@@ -20,6 +28,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
 	// ipcRenderer.on , uziregistruoja, kaip event listener on case of asynchr-reply to do sth
 	ipcRenderer.on('asynchronous-reply', (event, arg) => {
 		console.log(['received response from main', arg]);
+		window.outPath = arg.outPath;
 	});
 });
 

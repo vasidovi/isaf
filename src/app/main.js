@@ -1,6 +1,7 @@
 const generateJson = require('../../src/xlsxDataToJson.js').generateJson;
 const jsonToXml = require('../../src/jsonToXml.js').jsonToXml;
 const fs = require('fs');
+const config = require('config');
 
 const {
 	app,
@@ -28,7 +29,7 @@ function createWindow () {
 	win.loadFile(path.join(__dirname, 'index.html'));
 
 	// Open the DevTools.
-	// win.webContents.openDevTools();
+	win.webContents.openDevTools();
 
 	// Emitted when the window is closed.
 	win.on('closed', () => {
@@ -47,7 +48,9 @@ function createWindow () {
 		const startDate = new Date(userInput.startDate);
 		const endDate = new Date(userInput.endDate);
 
-		const outPath = path.dirname(userInput.filePath) + '/isaf_' + (startDate.getMonth() + 1) + '.xml';
+		const outPath = path.join(userInput.outPath,
+			`/isaf_${startDate.getFullYear()}_${startDate.getMonth() + 1}.xml`);
+
 		const json = generateJson(userInput.filePath, startDate, endDate);
 		const purchaseInvCount = json.SourceDocuments.PurchaseInvoices.Invoice.length;
 		const salesInvCount = json.SourceDocuments.SalesInvoices.Invoice.length;
