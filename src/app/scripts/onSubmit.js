@@ -15,7 +15,10 @@ async function submit () {
 		const files = $('#isafFile')[0].files;
 		filePath = files[0].path;
 	} else {
-		filePath = window.path.join(__dirname, window.config.get('Workbook.info.defaultInput'));
+		filePath = window.config.get('Workbook.info.defaultInput');
+		if (!window.path.isAbsolute(filePath)) {
+			filePath = window.path.join(__dirname, filePath);
+		}
 	}
 
 	const data = {
