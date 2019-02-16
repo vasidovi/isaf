@@ -1,6 +1,14 @@
+const fs = require('fs');
+
+// Need to change root dir for built electron app
+if (fs.existsSync('isaf.exe')) {
+	process.chdir('resources/app');
+} else {
+	console.log('Already root');
+}
+
 const generateJson = require('../../src/xlsxDataToJson.js').generateJson;
 const jsonToXml = require('../../src/jsonToXml.js').jsonToXml;
-const fs = require('fs');
 
 const {
 	app,
