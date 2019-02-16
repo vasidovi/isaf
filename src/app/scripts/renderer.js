@@ -9,6 +9,8 @@ if (window) {
 	window.path = require('path');
 	window.childProcess = require('child_process');
 
-	window.outPath = window.path.join(__dirname,
-		window.config.get('Workbook.info.defaultOutputDir'));
+	window.outPath = window.config.get('Workbook.info.defaultOutputDir');
+	if (!window.path.isAbsolute(window.outPath)) {
+		window.outPath = window.path.join(__dirname, window.outPath);
+	}
 }
