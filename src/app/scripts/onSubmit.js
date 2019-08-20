@@ -47,18 +47,19 @@ async function submit () {
 function getDates () {
 	let startDate;
 	let endDate;
-	if ($('#datesFields').css('display') !== null) {
+	var dateFields = $('#datesFields').css('display')
+	if (dateFields !== null && dateFields != 'none') {
 		startDate = new Date($('#from').val());
 		endDate = new Date($('#to').val());
 	} else {
-		const month = $('#month').val() - 1;
+		const month = parseInt($('#monthField option:selected').text() )- 1;
 		const today = new Date();
 		let year = today.getFullYear();
 		if (month === 11) {
 			year = today.getFullYear() - 1;
 		}
 		startDate = new Date(year, month, 1);
-		endDate = new Date(year, month - 1, 0);
+		endDate = new Date(year, month + 1, 0);
 	}
 	return [startDate, endDate];
 };
