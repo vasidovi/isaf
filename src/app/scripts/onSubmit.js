@@ -58,8 +58,8 @@ function getDates () {
 		if (month === 11) {
 			year = today.getFullYear() - 1;
 		}
-		startDate = new Date(year, month, 1);
-		endDate = new Date(year, month + 1, 0);
+		startDate = new Date(Date.UTC(year, month, 1));
+		endDate = new Date(Date.UTC(year, month + 1, 0));
 	}
 	return [startDate, endDate];
 };
