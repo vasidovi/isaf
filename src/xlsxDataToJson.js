@@ -9,6 +9,10 @@ function getInvoicePartner (invoice, credentials) {
 	customer.id = invoice.partnerId;
 
 	const cred = credentials.find(c => c.id === customer.id);
+	
+	if (typeof cred === 'undefined') {
+		throw new Error('Nepavyko rasti imones kodu [' + customer.id + ']');
+	}
 	if (cred.code.startsWith('LT')) {
 		customer.VATregistrationNumber = cred.code;
 	} else {
